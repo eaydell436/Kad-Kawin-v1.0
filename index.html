@@ -76,6 +76,7 @@
         letter-spacing: 0.08em;
       }
 
+      /* Default untuk semua pelayar */
       .bg-wedding-photo {
         background-image: url('https://eaydell436.github.io/Kad-Kawin-v1.0/IMG-20260725-WA0007.jpg');
         background-attachment: fixed;
@@ -83,8 +84,23 @@
         background-position: center;
         background-repeat: no-repeat;
         position: relative;
+        min-height: 100vh;
       }
 
+      /* Khas untuk Safari/iOS - tukar ke scroll */
+      @supports (-webkit-touch-callout: none) {
+        .bg-wedding-photo {
+          background-attachment: scroll;
+        }
+      }
+
+      /* Untuk peranti mudah alih umum */
+      @media screen and (max-width: 768px) {
+        .bg-wedding-photo {
+          background-attachment: scroll;
+          background-position: top center;
+        }
+      }
       /* Overlay White lutsinar */
       .bg-overlay-white {
         background-color: rgba(255, 255, 255, 0.85);
