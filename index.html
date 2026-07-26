@@ -79,31 +79,37 @@
       /* Default untuk semua pelayar */
       .bg-wedding-photo {
         background-image: url('https://eaydell436.github.io/Kad-Kawin-v1.0/IMG-20260725-WA0007.jpg');
-        background-attachment: fixed;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
         min-height: 100vh;
       }
 
-      /* Khas untuk Safari/iOS - tukar ke scroll */
-      @supports (-webkit-touch-callout: none) {
-        .bg-wedding-photo {
-          background-attachment: scroll;
-        }
-      }
-
-      /* Untuk peranti mudah alih umum */
-      @media screen and (max-width: 768px) {
-        .bg-wedding-photo {
-          background-attachment: scroll;
-          background-position: top center;
-        }
-      }
-      /* Overlay White lutsinar */
+      /* Overlay White lutsinar - pastikan di atas background */
       .bg-overlay-white {
         background-color: rgba(255, 255, 255, 0.85);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      /* Pastikan semua kandungan di atas overlay */
+      body
+        > *:not(.bg-wedding-photo):not(.bg-overlay-white):not(
+          #petal-container
+        ) {
+        position: relative;
+        z-index: 2;
       }
 
       /* Animasi Kelopak Bunga Jatuh - warna gold lembut */
