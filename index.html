@@ -76,22 +76,28 @@
         letter-spacing: 0.08em;
       }
 
-      /* Default untuk semua pelayar */
-      .bg-wedding-photo {
-        background-image: url('https://eaydell436.github.io/Kad-Kawin-v1.0/IMG-20260725-WA0007.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+      /* LATAR BELAKANG - Guna body::before untuk semua peranti */
+      body {
+        position: relative;
+        min-height: 100vh;
+        background-color: #ffffff;
+      }
+
+      body::before {
+        content: '';
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 0;
-        min-height: 100vh;
+        background-image: url('https://eaydell436.github.io/Kad-Kawin-v1.0/IMG-20260725-WA0007.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -2;
       }
 
-      /* Overlay White lutsinar - pastikan di atas background */
+      /* Overlay White */
       .bg-overlay-white {
         background-color: rgba(255, 255, 255, 0.85);
         position: fixed;
@@ -99,8 +105,21 @@
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 1;
+        z-index: -1;
         pointer-events: none;
+      }
+
+      /* Buang semua background-image dari kelas lain */
+      .bg-wedding-photo {
+        /* Tiada background di sini - guna body::before */
+        position: relative;
+        min-height: 100vh;
+      }
+
+      #welcome-screen,
+      #main-content {
+        position: relative;
+        z-index: 1;
       }
 
       /* Pastikan semua kandungan di atas overlay */
