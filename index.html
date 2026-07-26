@@ -187,9 +187,15 @@
         background: #6b7a63;
         color: #ffffff;
         border: 1px solid rgba(197, 160, 89, 0.25);
+        cursor: pointer;
       }
       .warm-btn:hover {
         background: #4d5a46;
+      }
+      .warm-btn:disabled {
+        background: #a0a0a0;
+        cursor: not-allowed;
+        opacity: 0.6;
       }
 
       .warm-textarea {
@@ -384,6 +390,32 @@
         gap: 10px;
         padding: 6px 0;
       }
+
+      /* STYLE UNTUK BAHAGIAN DITUTUP */
+      .closed-section {
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(197, 160, 89, 0.3);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: center;
+      }
+      .closed-section i {
+        font-size: 48px;
+        color: #c5a059;
+        margin-bottom: 12px;
+        opacity: 0.6;
+      }
+      .closed-section h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 18px;
+        color: #2f382b;
+        margin-bottom: 8px;
+      }
+      .closed-section p {
+        font-size: 11px;
+        color: rgba(47, 56, 43, 0.6);
+        line-height: 1.6;
+      }
     </style>
   </head>
   <body
@@ -417,7 +449,7 @@
         <div class="my-5 py-2 border-y border-gold/25">
           <span
             class="date-font text-3xl font-bold text-gold-main tracking-widest"
-            >12 . 1 . 2027</span
+            >12 . 01 . 2027</span
           >
           <p
             class="font-serif text-[11px] uppercase tracking-wider text-dark-main mt-1"
@@ -483,12 +515,12 @@
             <p
               class="date-font text-3xl font-bold text-gold-main tracking-[0.2em]"
             >
-              12 . 1 . 2027
+              12 . 01 . 2027
             </p>
             <p
               class="font-serif text-xs uppercase tracking-widest text-dark-main mt-1"
             >
-              SELASA, 12 JANUARI 2027
+              SELASA
             </p>
           </div>
           <p
@@ -592,9 +624,10 @@
             </div>
           </div>
 
-          <!-- COUNTDOWN -->
-          <div class="mt-6 pt-6 border-t border-gold/25">
+          <!-- COUNTDOWN ATAU MAJLIS TELAH BERLALU -->
+          <div id="countdown-section" class="mt-6 pt-6 border-t border-gold/25">
             <p
+              id="countdown-title"
               class="text-[11px] text-dark-main uppercase tracking-widest font-semibold mb-3"
             >
               Menghitung Hari
@@ -640,6 +673,15 @@
                 >
                 <p class="text-[9px] text-white/70 uppercase">Saat</p>
               </div>
+            </div>
+            <!-- Mesej selepas majlis -->
+            <div id="event-passed-message" class="hidden mt-4 closed-section">
+              <i class="fa-solid fa-heart-circle-check"></i>
+              <h3>Majlis Telah Berlangsung</h3>
+              <p>
+                Alhamdulillah, majlis perkahwinan telah selamat berlangsung pada
+                12 Januari 2027. Terima kasih atas doa dan kehadiran anda. 🤍
+              </p>
             </div>
           </div>
 
@@ -707,10 +749,12 @@
             >
               Pengesahan Kehadiran (RSVP)
             </h2>
-            <p class="text-xs text-dark-muted mt-1">
+            <p id="rsvp-subtitle" class="text-xs text-dark-muted mt-1">
               Sila sahkan kehadiran anda sebelum 1 Disember 2026
             </p>
           </div>
+
+          <!-- Borang RSVP (sebelum tarikh) -->
           <form
             id="rsvp-form"
             onsubmit="handleRSVP(event)"
@@ -773,11 +817,14 @@
             </div>
             <button
               type="submit"
+              id="rsvp-submit-btn"
               class="w-full py-3.5 rounded-xl warm-btn font-serif font-bold text-xs uppercase tracking-widest shadow-lg mt-2"
             >
               HANTAR RSVP
             </button>
           </form>
+
+          <!-- Mesej berjaya RSVP -->
           <div id="rsvp-success" class="hidden text-center py-6">
             <i
               class="fa-solid fa-circle-check text-gold-main text-4xl mb-2"
@@ -787,6 +834,16 @@
             </h3>
             <p class="text-xs text-dark-muted mt-1">
               Pengesahan kehadiran anda telah berjaya direkodkan.
+            </p>
+          </div>
+
+          <!-- Mesej RSVP ditutup (selepas tarikh) -->
+          <div id="rsvp-closed" class="hidden closed-section">
+            <i class="fa-solid fa-lock"></i>
+            <h3>RSVP Telah Ditutup</h3>
+            <p>
+              Tempoh pengesahan kehadiran telah tamat. Majlis telah pun
+              berlangsung. Terima kasih. 🤍
             </p>
           </div>
         </div>
@@ -860,16 +917,21 @@
       </section>
 
       <!-- UCAPAN -->
-      <section class="px-4 py-2">
+      <section id="wishes-section" class="px-4 py-2">
         <div class="p-4">
           <h2
             class="font-serif text-xl text-dark-main font-bold text-center mb-1 uppercase tracking-wider"
           >
             Titipan Doa &amp; Ucapan
           </h2>
-          <p class="text-xs text-dark-muted text-center mb-5">
+          <p
+            id="wishes-subtitle"
+            class="text-xs text-dark-muted text-center mb-5"
+          >
             Tinggalkan kata ucapan &amp; doa buat Mazirah &amp; Aiman
           </p>
+
+          <!-- Borang ucapan (sebelum tarikh) -->
           <form id="wish-form" onsubmit="addWish(event)" class="space-y-3 mb-5">
             <input
               type="text"
@@ -887,11 +949,24 @@
             ></textarea>
             <button
               type="submit"
+              id="wish-submit-btn"
               class="w-full py-2.5 rounded-xl warm-btn font-serif text-xs tracking-wider uppercase shadow"
             >
               KIRIM UCAPAN
             </button>
           </form>
+
+          <!-- Mesej ucapan ditutup (selepas tarikh) -->
+          <div id="wishes-closed" class="hidden closed-section mb-5">
+            <i class="fa-solid fa-lock"></i>
+            <h3>Ucapan Telah Ditutup</h3>
+            <p>
+              Tempoh penghantaran ucapan telah tamat. Terima kasih atas semua
+              doa dan ucapan yang telah diberikan. 🤍
+            </p>
+          </div>
+
+          <!-- Senarai ucapan -->
           <div
             id="wishes-scroll"
             class="wishes-scroll rounded-xl border border-gold/20"
@@ -992,14 +1067,14 @@
         </p>
         <div class="modal-options-grid">
           <a
-            href="https://wa.me/60123456789"
+            href="https://wa.me/60129634169"
             target="_blank"
             class="modal-option-btn"
             ><i class="fa-brands fa-whatsapp"></i
             ><span>Pihak Perempuan</span></a
           >
           <a
-            href="https://wa.me/60198765432"
+            href="https://wa.me/60179838265"
             target="_blank"
             class="modal-option-btn"
             ><i class="fa-brands fa-whatsapp"></i><span>Pihak Lelaki</span></a
@@ -1049,13 +1124,67 @@
 
     <script>
       // ============================================
-      // ✅ URL GOOGLE APPS SCRIPT ANDA
+      // ✅ KONFIGURASI
       // ============================================
       const API_URL =
         'https://script.google.com/macros/s/AKfycby8lHoPylAllwgbva3MDLVWEUf41G9MA6XtT6K06XezZ281CSqT5nqGttcV5co6efhy/exec';
 
+      // ⚠️ TARIKH MAJLIS - Auto tutup selepas tarikh ini
+      const EVENT_DATE = new Date('2027-01-12T23:59:59'); // 12 Januari 2027, 11:59 PM
+
       let autoScrollTimer = null;
       let isUserScrolling = false;
+      let isEventPassed = false;
+
+      // ============================================
+      // SEMAK SAMA ADA MAJLIS SUDAH LEPAS
+      // ============================================
+      function checkEventStatus() {
+        const now = new Date();
+        isEventPassed = now > EVENT_DATE;
+        console.log(
+          '📅 Status majlis:',
+          isEventPassed ? '✅ SUDAH LEPAS' : '⏳ AKAN DATANG'
+        );
+        console.log('🕐 Sekarang:', now.toLocaleString('ms-MY'));
+        console.log('🎯 Tarikh majlis:', EVENT_DATE.toLocaleString('ms-MY'));
+        return isEventPassed;
+      }
+
+      // ============================================
+      // FUNGSI TUTUP BAHAGIAN RSVP & UCAPAN
+      // ============================================
+      function closeEventSections() {
+        console.log('🔒 Menutup bahagian RSVP dan Ucapan...');
+
+        // Tutup RSVP
+        const rsvpForm = document.getElementById('rsvp-form');
+        const rsvpClosed = document.getElementById('rsvp-closed');
+        const rsvpSubtitle = document.getElementById('rsvp-subtitle');
+
+        if (rsvpForm) rsvpForm.style.display = 'none';
+        if (rsvpClosed) rsvpClosed.classList.remove('hidden');
+        if (rsvpSubtitle) rsvpSubtitle.textContent = 'Tempoh RSVP telah tamat';
+
+        // Tutup Ucapan
+        const wishForm = document.getElementById('wish-form');
+        const wishesClosed = document.getElementById('wishes-closed');
+        const wishesSubtitle = document.getElementById('wishes-subtitle');
+
+        if (wishForm) wishForm.style.display = 'none';
+        if (wishesClosed) wishesClosed.classList.remove('hidden');
+        if (wishesSubtitle)
+          wishesSubtitle.textContent = 'Tempoh penghantaran ucapan telah tamat';
+
+        // Sembunyi countdown & tunjuk mesej majlis telah berlalu
+        const countdownDiv = document.getElementById('countdown');
+        const countdownTitle = document.getElementById('countdown-title');
+        const eventPassedMsg = document.getElementById('event-passed-message');
+
+        if (countdownDiv) countdownDiv.style.display = 'none';
+        if (countdownTitle) countdownTitle.textContent = 'Alhamdulillah';
+        if (eventPassedMsg) eventPassedMsg.classList.remove('hidden');
+      }
 
       // ============================================
       // DEBUG - UJI SAMBUNGAN BACKEND
@@ -1063,6 +1192,14 @@
       window.addEventListener('DOMContentLoaded', () => {
         console.log('🔍 Kad Kahwin - Ujian Sambungan Backend');
         console.log('📍 API_URL:', API_URL);
+
+        // Semak status majlis
+        const isPassed = checkEventStatus();
+
+        // Jika majlis sudah lepas, tutup terus
+        if (isPassed) {
+          closeEventSections();
+        }
 
         // Uji backend
         fetch(API_URL + '?action=getWishes')
@@ -1080,9 +1217,6 @@
           })
           .catch((error) => {
             console.error('❌ RALAT SAMBUNGAN:', error);
-            console.error(
-              'Pastikan Google Apps Script sudah dideploy sebagai Web App'
-            );
           });
 
         // Baca parameter URL
@@ -1157,13 +1291,22 @@
       }
 
       // ============================================
-      // ADD WISH
+      // ADD WISH (dengan semakan tarikh)
       // ============================================
       function addWish(event) {
         event.preventDefault();
+
+        // SEMAK: Jika majlis sudah lepas, jangan benarkan
+        if (isEventPassed) {
+          alert(
+            '❌ Maaf, tempoh penghantaran ucapan telah tamat. Majlis telah pun berlangsung.'
+          );
+          return;
+        }
+
         const nameInput = document.getElementById('wish-name');
         const messageInput = document.getElementById('wish-message');
-        const submitBtn = event.target.querySelector('button[type="submit"]');
+        const submitBtn = document.getElementById('wish-submit-btn');
 
         if (!nameInput.value || !messageInput.value) {
           alert('Sila isi nama dan ucapan.');
@@ -1200,15 +1343,24 @@
       }
 
       // ============================================
-      // RSVP
+      // RSVP (dengan semakan tarikh)
       // ============================================
       function handleRSVP(event) {
         event.preventDefault();
+
+        // SEMAK: Jika majlis sudah lepas, jangan benarkan
+        if (isEventPassed) {
+          alert(
+            '❌ Maaf, tempoh RSVP telah tamat. Majlis telah pun berlangsung.'
+          );
+          return;
+        }
+
         const name = document.getElementById('rsvp-name').value;
         const status = document.getElementById('rsvp-status').value;
         const pax = document.getElementById('rsvp-pax').value;
         const phone = document.getElementById('rsvp-phone').value;
-        const submitBtn = event.target.querySelector('button[type="submit"]');
+        const submitBtn = document.getElementById('rsvp-submit-btn');
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Menghantar...';
@@ -1247,7 +1399,7 @@
         if (!container) return;
         const items = container.children;
         const itemsArray = Array.from(items);
-        if (itemsArray.length > 0) {
+        if (itemsArray.length > 1) {
           itemsArray.forEach((item) => {
             const clone = item.cloneNode(true);
             container.appendChild(clone);
@@ -1379,8 +1531,10 @@
 
       function startCountdown() {
         const eventDate = new Date('January 12, 2027 11:00:00').getTime();
-        setInterval(() => {
-          const diff = eventDate - new Date().getTime();
+        const countdownInterval = setInterval(() => {
+          const now = new Date().getTime();
+          const diff = eventDate - now;
+
           if (diff > 0) {
             document.getElementById('days').innerText = String(
               Math.floor(diff / 86400000)
@@ -1394,6 +1548,21 @@
             document.getElementById('seconds').innerText = String(
               Math.floor((diff % 60000) / 1000)
             ).padStart(2, '0');
+          } else {
+            // Countdown habis = majlis sudah bermula/lepas
+            clearInterval(countdownInterval);
+            document.getElementById('days').innerText = '00';
+            document.getElementById('hours').innerText = '00';
+            document.getElementById('minutes').innerText = '00';
+            document.getElementById('seconds').innerText = '00';
+
+            // Auto tutup selepas 24 jam dari tarikh majlis
+            setTimeout(() => {
+              checkEventStatus();
+              if (isEventPassed) {
+                closeEventSections();
+              }
+            }, 86400000); // 24 jam selepas countdown habis
           }
         }, 1000);
       }
