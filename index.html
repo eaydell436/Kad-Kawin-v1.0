@@ -47,6 +47,12 @@
       };
     </script>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body {
         color: #2f382b;
         font-family: 'Montserrat', sans-serif;
@@ -105,14 +111,6 @@
       #main-content {
         position: relative;
         z-index: 1;
-      }
-
-      body
-        > *:not(.bg-wedding-photo):not(.bg-overlay-white):not(
-          #petal-container
-        ):not(.modal-overlay) {
-        position: relative;
-        z-index: 2;
       }
 
       #petal-container {
@@ -174,6 +172,7 @@
         outline: none;
         border-color: #c5a059;
       }
+
       .warm-select {
         background: rgba(255, 255, 255, 0.7);
         border: 1px solid rgba(197, 160, 89, 0.25);
@@ -183,6 +182,7 @@
         outline: none;
         border-color: #c5a059;
       }
+
       .warm-btn {
         background: #6b7a63;
         color: #ffffff;
@@ -191,6 +191,7 @@
       .warm-btn:hover {
         background: #4d5a46;
       }
+
       .warm-textarea {
         background: rgba(255, 255, 255, 0.7);
         border: 1px solid rgba(197, 160, 89, 0.25);
@@ -243,6 +244,7 @@
       .wishes-inner.paused {
         animation-play-state: paused;
       }
+
       @keyframes scrollUp {
         0% {
           transform: translateY(0);
@@ -260,17 +262,13 @@
         flex-wrap: wrap;
         padding: 8px 0;
       }
-      .footer-design .divider {
-        color: rgba(47, 56, 43, 0.3);
-        font-size: 12px;
-      }
       .footer-design .copyright-text {
         font-size: 10px;
         color: rgba(47, 56, 43, 0.5);
         letter-spacing: 0.02em;
       }
 
-      /* MODAL - DI LUAR MAIN CONTENT, MELIPUTI SELURUH SKRIN */
+      /* MODAL - DI LUAR MAIN CONTENT, OVERLAY PENUH SKRIN */
       .modal-overlay {
         position: fixed;
         inset: 0;
@@ -330,12 +328,14 @@
         font-size: 32px;
         color: #c5a059;
       }
+
       .modal-options-grid {
         display: flex;
         gap: 12px;
         justify-content: center;
         flex-wrap: wrap;
       }
+
       .modal-close-btn {
         position: absolute;
         top: 12px;
@@ -565,16 +565,16 @@
             <div class="flex items-center justify-center gap-3">
               <i
                 class="fa-regular fa-calendar-check text-gold-main text-base"
-              ></i>
-              <span class="font-semibold">Selasa, 12 Januari 2027</span>
+              ></i
+              ><span class="font-semibold">Selasa, 12 Januari 2027</span>
             </div>
             <div class="flex items-center justify-center gap-3">
-              <i class="fa-regular fa-clock text-gold-main text-base"></i>
-              <span>11:00 PAGI - 4:00 PETANG</span>
+              <i class="fa-regular fa-clock text-gold-main text-base"></i
+              ><span>11:00 PAGI - 4:00 PETANG</span>
             </div>
             <div class="flex items-center justify-center gap-3">
-              <i class="fa-solid fa-utensils text-gold-main text-base"></i>
-              <span>Jamuan Makan: 11:30 PAGI</span>
+              <i class="fa-solid fa-utensils text-gold-main text-base"></i
+              ><span>Jamuan Makan: 11:30 PAGI</span>
             </div>
             <div
               id="location-section"
@@ -685,17 +685,15 @@
               href="https://www.google.com/maps?q=4677-H,+Kg+Banggol+Kulim,+17200+Rantau+Panjang,+Kelantan"
               target="_blank"
               class="py-2.5 px-4 rounded-xl bg-olive-dark text-white text-xs flex items-center justify-center gap-2 hover:bg-olive transition shadow"
+              ><i class="fa-solid fa-map-location-dot text-gold-main"></i>
+              Google Maps</a
             >
-              <i class="fa-solid fa-map-location-dot text-gold-main"></i> Google
-              Maps
-            </a>
             <a
               href="https://waze.com/ul?q=4677-H+Kg+Banggol+Kulim+Rantau+Panjang+Kelantan"
               target="_blank"
               class="py-2.5 px-4 rounded-xl bg-olive-dark text-white text-xs flex items-center justify-center gap-2 hover:bg-olive transition shadow"
+              ><i class="fa-brands fa-waze text-gold-main"></i> Waze</a
             >
-              <i class="fa-brands fa-waze text-gold-main"></i> Waze
-            </a>
           </div>
         </div>
       </section>
@@ -721,8 +719,7 @@
             <div>
               <label class="block text-dark-main mb-1 font-semibold"
                 >Nama Penuh</label
-              >
-              <input
+              ><input
                 type="text"
                 id="rsvp-name"
                 required
@@ -733,8 +730,7 @@
             <div>
               <label class="block text-dark-main mb-1 font-semibold"
                 >Status Kehadiran</label
-              >
-              <select
+              ><select
                 id="rsvp-status"
                 required
                 class="w-full px-4 py-2.5 rounded-xl warm-select"
@@ -748,8 +744,7 @@
             <div>
               <label class="block text-dark-main mb-1 font-semibold"
                 >Jumlah Tetamu</label
-              >
-              <select
+              ><select
                 id="rsvp-pax"
                 class="w-full px-4 py-2.5 rounded-xl warm-select"
               >
@@ -768,8 +763,7 @@
             <div>
               <label class="block text-dark-main mb-1 font-semibold"
                 >Nombor Telefon / WhatsApp</label
-              >
-              <input
+              ><input
                 type="tel"
                 id="rsvp-phone"
                 required
@@ -979,7 +973,7 @@
       </div>
     </div>
 
-    <!-- MODAL HUBUNGI - DI LUAR MAIN CONTENT, OVERLAY PENUH SKRIN -->
+    <!-- MODAL HUBUNGI -->
     <div id="contact-modal" class="modal-overlay">
       <div class="modal-box">
         <button onclick="closeContactModal()" class="modal-close-btn">
@@ -1001,21 +995,20 @@
             href="https://wa.me/60123456789"
             target="_blank"
             class="modal-option-btn"
+            ><i class="fa-brands fa-whatsapp"></i
+            ><span>Pihak Perempuan</span></a
           >
-            <i class="fa-brands fa-whatsapp"></i><span>Pihak Perempuan</span>
-          </a>
           <a
             href="https://wa.me/60198765432"
             target="_blank"
             class="modal-option-btn"
+            ><i class="fa-brands fa-whatsapp"></i><span>Pihak Lelaki</span></a
           >
-            <i class="fa-brands fa-whatsapp"></i><span>Pihak Lelaki</span>
-          </a>
         </div>
       </div>
     </div>
 
-    <!-- MODAL KALENDAR - DI LUAR MAIN CONTENT, OVERLAY PENUH SKRIN -->
+    <!-- MODAL KALENDAR -->
     <div id="calendar-modal" class="modal-overlay">
       <div class="modal-box">
         <button onclick="closeCalendarModal()" class="modal-close-btn">
@@ -1035,16 +1028,14 @@
             href="#"
             onclick="addToAppleCalendar(); return false;"
             class="modal-option-btn"
+            ><i class="fa-brands fa-apple"></i><span>Apple Calendar</span></a
           >
-            <i class="fa-brands fa-apple"></i><span>Apple Calendar</span>
-          </a>
           <a
             href="#"
             onclick="addToGoogleCalendar(); return false;"
             class="modal-option-btn"
+            ><i class="fa-brands fa-google"></i><span>Google Calendar</span></a
           >
-            <i class="fa-brands fa-google"></i><span>Google Calendar</span>
-          </a>
         </div>
       </div>
     </div>
@@ -1058,28 +1049,57 @@
 
     <script>
       // ============================================
-      // BACKEND CONFIG
+      // ✅ URL GOOGLE APPS SCRIPT ANDA
       // ============================================
       const API_URL =
-        'https://script.google.com/macros/s/AKfycbypu-SJ8MUSOqgRw4XUNjRRFkrc7ySmLDnJybeGzEz0-fcuirj9PITlqwlGzU8rgVm6/exec';
+        'https://script.google.com/macros/s/AKfycby8lHoPylAllwgbva3MDLVWEUf41G9MA6XtT6K06XezZ281CSqT5nqGttcV5co6efhy/exec';
 
       let autoScrollTimer = null;
       let isUserScrolling = false;
 
+      // ============================================
+      // DEBUG - UJI SAMBUNGAN BACKEND
+      // ============================================
       window.addEventListener('DOMContentLoaded', () => {
+        console.log('🔍 Kad Kahwin - Ujian Sambungan Backend');
+        console.log('📍 API_URL:', API_URL);
+
+        // Uji backend
+        fetch(API_URL + '?action=getWishes')
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              console.log('✅ BACKEND BERJAYA DISAMBUNG! 🎉');
+              console.log(
+                '📊 Jumlah ucapan sedia ada:',
+                data.wishes ? data.wishes.length : 0
+              );
+            } else {
+              console.error('❌ Backend gagal:', data.error);
+            }
+          })
+          .catch((error) => {
+            console.error('❌ RALAT SAMBUNGAN:', error);
+            console.error(
+              'Pastikan Google Apps Script sudah dideploy sebagai Web App'
+            );
+          });
+
+        // Baca parameter URL
         const urlParams = new URLSearchParams(window.location.search);
         const guest = urlParams.get('to');
         if (guest) {
           document.getElementById('guest-name-display').innerText =
             decodeURIComponent(guest);
         }
+
         startCountdown();
         createPetals();
         setupAutoScroll();
         setupManualScroll();
         loadWishes();
 
-        // Tutup modal jika pengguna klik di luar kotak modal (pada overlay)
+        // Tutup modal bila klik di luar
         document
           .getElementById('contact-modal')
           .addEventListener('click', function (e) {
@@ -1093,13 +1113,15 @@
       });
 
       // ============================================
-      // UCAPAN
+      // LOAD WISHES
       // ============================================
       function loadWishes() {
         const container = document.getElementById('wishes-container');
         if (!container) return;
-        container.innerHTML = `<div class="p-3 text-center text-dark-muted text-xs"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Memuat ucapan...</div>`;
-        fetch(`${API_URL}?action=getWishes`)
+        container.innerHTML =
+          '<div class="p-3 text-center text-dark-muted text-xs"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Memuat ucapan...</div>';
+
+        fetch(API_URL + '?action=getWishes')
           .then((response) => response.json())
           .then((data) => {
             if (data.success && data.wishes && data.wishes.length > 0) {
@@ -1123,26 +1145,34 @@
               });
               setupAutoScroll();
             } else {
-              container.innerHTML = `<div class="p-3 text-center text-dark-muted text-xs">Belum ada ucapan. Jadilah yang pertama!</div>`;
+              container.innerHTML =
+                '<div class="p-3 text-center text-dark-muted text-xs">Belum ada ucapan. Jadilah yang pertama! 💬</div>';
             }
           })
           .catch((error) => {
-            console.error('Error loading wishes:', error);
-            container.innerHTML = `<div class="p-3 text-center text-red-500 text-xs">❌ Gagal memuat ucapan. Sila cuba lagi.</div>`;
+            console.error('❌ Gagal memuat ucapan:', error);
+            container.innerHTML =
+              '<div class="p-3 text-center text-red-500 text-xs">❌ Gagal memuat ucapan. Sila cuba lagi.</div>';
           });
       }
 
+      // ============================================
+      // ADD WISH
+      // ============================================
       function addWish(event) {
         event.preventDefault();
         const nameInput = document.getElementById('wish-name');
         const messageInput = document.getElementById('wish-message');
         const submitBtn = event.target.querySelector('button[type="submit"]');
+
         if (!nameInput.value || !messageInput.value) {
           alert('Sila isi nama dan ucapan.');
           return;
         }
+
         submitBtn.disabled = true;
         submitBtn.textContent = 'Menghantar...';
+
         fetch(API_URL, {
           method: 'POST',
           mode: 'no-cors',
@@ -1157,10 +1187,10 @@
             alert('✅ Ucapan anda berjaya dihantar! Terima kasih.');
             nameInput.value = '';
             messageInput.value = '';
-            loadWishes();
+            setTimeout(() => loadWishes(), 2000);
           })
           .catch((error) => {
-            console.error('Error:', error);
+            console.error('❌ Ralat:', error);
             alert('❌ Ralat semasa menghantar ucapan. Sila cuba lagi.');
           })
           .finally(() => {
@@ -1169,6 +1199,9 @@
           });
       }
 
+      // ============================================
+      // RSVP
+      // ============================================
       function handleRSVP(event) {
         event.preventDefault();
         const name = document.getElementById('rsvp-name').value;
@@ -1176,8 +1209,10 @@
         const pax = document.getElementById('rsvp-pax').value;
         const phone = document.getElementById('rsvp-phone').value;
         const submitBtn = event.target.querySelector('button[type="submit"]');
+
         submitBtn.disabled = true;
         submitBtn.textContent = 'Menghantar...';
+
         fetch(API_URL, {
           method: 'POST',
           mode: 'no-cors',
@@ -1195,7 +1230,7 @@
             document.getElementById('rsvp-success').classList.remove('hidden');
           })
           .catch((error) => {
-            console.error('Error:', error);
+            console.error('❌ Ralat:', error);
             alert('❌ Ralat semasa menghantar RSVP. Sila cuba lagi.');
           })
           .finally(() => {
@@ -1240,9 +1275,6 @@
         scrollContainer.addEventListener('touchstart', pauseAutoScroll);
         scrollContainer.addEventListener('touchmove', pauseAutoScroll);
         scrollContainer.addEventListener('mousedown', pauseAutoScroll);
-        scrollContainer.addEventListener('mousemove', (e) => {
-          if (e.buttons > 0) pauseAutoScroll();
-        });
         scrollContainer.addEventListener('wheel', pauseAutoScroll);
       }
 
@@ -1290,15 +1322,15 @@
 
       function addToGoogleCalendar() {
         closeCalendarModal();
-        const title = encodeURIComponent('Walimatulurus Mazirah & Aiman');
-        const details = encodeURIComponent(
-          'Majlis Perkahwinan Mazirah & Aiman di 4677-H, Kg Banggol Kulim, 17200 Rantau Panjang, Kelantan.'
-        );
-        const location = encodeURIComponent(
-          '4677-H, Kg Banggol Kulim, 17200 Rantau Panjang, Kelantan'
-        );
         window.open(
-          `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20270112T030000Z/20270112T080000Z&details=${details}&location=${location}`,
+          'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' +
+            encodeURIComponent('Walimatulurus Mazirah & Aiman') +
+            '&dates=20270112T030000Z/20270112T080000Z&details=' +
+            encodeURIComponent('Majlis Perkahwinan Mazirah & Aiman') +
+            '&location=' +
+            encodeURIComponent(
+              '4677-H, Kg Banggol Kulim, 17200 Rantau Panjang, Kelantan'
+            ),
           '_blank'
         );
       }
@@ -1316,19 +1348,7 @@
             if (icon)
               icon.className = 'fa-solid fa-music text-gold animate-pulse';
           })
-          .catch(() => {
-            audio.src =
-              'https://eaydell436.github.io/Kad-Kawin-v1.0/the_mountain-bridal-piano-252473.mp3';
-            audio
-              .play()
-              .then(() => {
-                isAudioPlaying = true;
-                const icon = document.getElementById('music-icon');
-                if (icon)
-                  icon.className = 'fa-solid fa-music text-gold animate-pulse';
-              })
-              .catch(() => {});
-          });
+          .catch(() => {});
       }
 
       function stopWeddingPianoTrack() {
@@ -1360,20 +1380,19 @@
       function startCountdown() {
         const eventDate = new Date('January 12, 2027 11:00:00').getTime();
         setInterval(() => {
-          const now = new Date().getTime();
-          const diff = eventDate - now;
+          const diff = eventDate - new Date().getTime();
           if (diff > 0) {
             document.getElementById('days').innerText = String(
-              Math.floor(diff / (1000 * 60 * 60 * 24))
+              Math.floor(diff / 86400000)
             ).padStart(2, '0');
             document.getElementById('hours').innerText = String(
-              Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+              Math.floor((diff % 86400000) / 3600000)
             ).padStart(2, '0');
             document.getElementById('minutes').innerText = String(
-              Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+              Math.floor((diff % 3600000) / 60000)
             ).padStart(2, '0');
             document.getElementById('seconds').innerText = String(
-              Math.floor((diff % (1000 * 60)) / 1000)
+              Math.floor((diff % 60000) / 1000)
             ).padStart(2, '0');
           }
         }, 1000);
@@ -1391,38 +1410,38 @@
       }
 
       function copyToClipboard(text) {
-        const dummy = document.createElement('input');
-        document.body.appendChild(dummy);
-        dummy.value = text;
-        dummy.select();
-        document.execCommand('copy');
-        document.body.removeChild(dummy);
-        alert('Nombor akaun (' + text + ') telah disalin!');
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            alert('✅ Nombor akaun (' + text + ') telah disalin!');
+          })
+          .catch(() => {
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            alert('✅ Nombor akaun (' + text + ') telah disalin!');
+          });
       }
 
       function shareInvitation() {
-        const shareText = `﷽\n\nDengan Nama Allah Yang Maha Pemurah Lagi Maha Penyayang\n\nAssalamualaikum W.B.T. & Salam Sejahtera\n\nDengan penuh rasa syukur ke hadrat Allah SWT, kami dengan segala hormatnya menjemput Dato' / Datin / Tuan / Puan / Saudara / Saudari sekeluarga untuk hadir memeriahkan dan menyerikan:\n\n🤍 Majlis Perkahwinan 🤍\n\nMazirah ♛ & Aiman ♚\n\n📅 Selasa | 12 Januari 2027\n📍 4677-H, Kg Banggol Kulim, 17200 Rantau Panjang, Kelantan\n\nKehadiran tuan/puan bersama keluarga merupakan suatu penghormatan yang amat kami hargai, serta menjadi penyeri dan pelengkap hari bahagia kami.\n\n"Tiada hadiah yang lebih bermakna selain kehadiran serta doa restu daripada insan yang kami kasihi."\n\n🤲 Doa\nاللَّهُمَّ بَارِكْ لَهُمَا، وَبَارِكْ عَلَيْهِمَا، وَاجْمَعْ بَيْنَهُمَا فِي خَيْرٍ.\n\nYa Allah, berkatilah kedua mempelai ini, limpahkanlah keberkatan ke atas mereka, dan satukanlah mereka dalam segala kebaikan, kasih sayang serta rahmat-Mu. Jadikanlah rumah tangga mereka sebuah keluarga yang sakinah, mawaddah wa rahmah hingga ke syurga-Mu. Aamiin Ya Rabbal 'Alamin.\n\n✨ Kami amat berbesar hati menantikan kehadiran dan doa restu daripada tuan/puan bagi berkongsi detik istimewa ini bersama kami. ✨`;
+        const shareText = `﷽\n\nAssalamualaikum W.B.T. & Salam Sejahtera\n\nDengan penuh rasa syukur, kami menjemput anda ke Majlis Perkahwinan:\n\n🤍 Mazirah & Aiman 🤍\n\n📅 Selasa | 12 Januari 2027\n📍 4677-H, Kg Banggol Kulim, 17200 Rantau Panjang, Kelantan\n\nKehadiran anda amat kami hargai.`;
         if (navigator.share) {
           navigator
             .share({
-              title: 'Majlis Perkahwinan - Mazirah ♛ & Aiman ♚',
+              title: 'Majlis Perkahwinan Mazirah & Aiman',
               text: shareText,
               url: window.location.href,
             })
             .catch(() => {});
         } else {
-          const dummy = document.createElement('textarea');
-          document.body.appendChild(dummy);
-          dummy.value =
-            shareText +
-            '\n\n📎 Sila klik pautan di bawah untuk melihat kad jemputan penuh:\n' +
-            window.location.href;
-          dummy.select();
-          document.execCommand('copy');
-          document.body.removeChild(dummy);
-          alert(
-            '✅ Teks undangan telah disalin ke papan keratan (clipboard)! Sila tampal dan kongsi.'
-          );
+          navigator.clipboard
+            .writeText(shareText + '\n\n' + window.location.href)
+            .then(() => {
+              alert('✅ Teks undangan telah disalin! Sila tampal dan kongsi.');
+            });
         }
       }
 
