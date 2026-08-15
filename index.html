@@ -278,16 +278,37 @@
 
       .footer-design {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
+        gap: 10px;
         padding: 8px 0;
       }
       .footer-design .copyright-text {
         font-size: 10px;
         color: rgba(47, 56, 43, 0.5);
         letter-spacing: 0.02em;
+      }
+      .footer-design .whatsapp-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: #6b7a63;
+        color: #ffffff;
+        font-size: 16px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          background 0.25s ease;
+        text-decoration: none;
+        border: 1px solid rgba(197, 160, 89, 0.2);
+      }
+      .footer-design .whatsapp-link:hover {
+        transform: scale(1.12);
+        background: #c5a059;
+        box-shadow: 0 4px 16px rgba(197, 160, 89, 0.35);
+        border-color: #c5a059;
       }
 
       /* MODAL */
@@ -680,41 +701,6 @@
               <i class="fa-solid fa-utensils text-gold-main text-base"></i
               ><span>Jamuan Makan: 11:30 PAGI</span>
             </div>
-            <!-- DRESS CODE -->
-            <!--<div class="mt-6 pt-6 border-t border-gold/25">
-              <p
-                class="text-[11px] text-dark-main uppercase tracking-widest font-semibold mb-3"
-              >
-                Kod Pakaian
-              </p>
-              <div
-                class="flex flex-col items-center gap-1 text-xs text-dark-muted"
-              >
-                <div class="dress-item">
-                  <span class="dress-color-dot dress-color-gold"></span
-                  ><span>Gold / Emas</span>
-                </div>
-                <div class="dress-item">
-                  <span class="dress-color-dot dress-color-cream"></span
-                  ><span>Cream / Krim</span>
-                </div>
-                <div class="dress-item">
-                  <span class="dress-color-dot dress-color-olive"></span
-                  ><span>Olive / Zaitun</span>
-                </div>
-                <div class="dress-item">
-                  <span class="dress-color-dot dress-color-white"></span
-                  ><span>White / Putih</span>
-                </div>
-                <div class="dress-item">
-                  <span class="dress-color-dot dress-color-dark"></span
-                  ><span>Dark / Gelap</span>
-                </div>
-              </div>
-              <p class="text-[10px] text-dark-muted/60 mt-3 italic">
-                *Sila pakai warna-warna di atas untuk memeriahkan majlis
-              </p>
-            </div> -->
 
             <div
               id="location-section"
@@ -854,73 +840,6 @@
         </div>
       </section>
 
-      <!-- HADIAH -->
-      <!--<section id="gift-section" class="px-4 py-2">
-        <div class="p-4 text-center">
-          <div class="inline-block p-3 mb-2">-->
-      <!--<i class="fa-solid fa-gift text-gold-main text-2xl"></i>
-          </div>
-         <h2
-            class="font-serif text-xl text-dark-main font-bold uppercase tracking-wider mb-1"
-          >
-             HADIAH 
-          </h2>-->
-      <!--<p class="text-xs text-dark-muted leading-relaxed mb-4">
-            Kehadiran dan doa restu anda sudah cukup bermakna buat kami. Namun
-            sekiranya anda ingin menyampaikan hadiah atau ingatan tulus, anda
-            boleh menggunakan QR Kod atau maklumat akaun di bawah:
-          </p>
-          <div class="my-4 p-4 inline-block w-full max-w-xs">
-            <p
-              class="text-xs font-serif font-bold text-dark-main mb-2 uppercase tracking-wider"
-            >
-              Imbas QR Kod (DuitNow / PayNow)
-            </p>
-            <div
-              class="bg-olive/10 p-3 rounded-lg inline-block my-1 shadow-md border border-gold/30"
-            >
-              <a
-                href="https://i.ibb.co/0jc4rNbq/QR-BANK-ISLAM-ENJO.jpg"
-                download
-                target="_blank"
-              >
-                <img
-                  src="https://i.ibb.co/0jc4rNbq/QR-BANK-ISLAM-ENJO.jpg"
-                  alt="QR Kod Bank Islam"
-                  class="w-44 h-44 object-contain mx-auto"
-                />
-              </a>
-            </div>
-            <p class="text-[10px] text-dark-muted mt-2 italic">
-              Klik untuk muat turun QR code
-            </p>
-          </div>
-          <div class="space-y-3 text-xs mt-4 text-left">
-            <div
-              class="p-3 flex items-center justify-between border-b border-gold/25"
-            >
-              <div>
-                <p class="text-[10px] text-dark-muted uppercase font-semibold">
-                  BANK ISLAM
-                </p>
-                <p class="font-bold text-dark-main font-serif text-sm">
-                  03027029663590
-                </p>
-                <p class="text-[11px] text-dark-muted">
-                  CHE MAZIRAH BINTI CHE MAZAHAR
-                </p>
-              </div>
-              <button
-                onclick="copyToClipboard('03027029663590')"
-                class="px-3 py-1.5 rounded-lg bg-olive-dark text-white text-[10px] hover:bg-olive transition"
-              >
-                <i class="fa-regular fa-copy"></i> Salin
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>-->
-
       <!-- UCAPAN -->
       <section id="wishes-section" class="px-4 py-2">
         <div class="p-4">
@@ -994,6 +913,15 @@
           <div class="w-12 h-px bg-gold/30 mx-auto my-3"></div>
           <div class="footer-design">
             <span class="copyright-text">© 2026 Design by Mohamad Aidil</span>
+            <a
+              href="https://wa.me/601155414633"
+              target="_blank"
+              class="whatsapp-link"
+              aria-label="WhatsApp Mohamad Aidil"
+              title="WhatsApp 011-55414633"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
           </div>
         </div>
       </footer>
@@ -1026,12 +954,6 @@
         >
           <i class="fa-solid fa-calendar-check text-lg"></i>
         </button>
-        <!--<button
-          onclick="scrollToSection('gift-section')"
-          class="flex flex-col items-center text-gold-main hover:opacity-70 transition"
-        >
-          <i class="fa-solid fa-gift text-lg"></i>
-        </button>-->
         <button
           onclick="openCalendarModal()"
           class="flex flex-col items-center text-gold-main hover:opacity-70 transition"
