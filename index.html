@@ -517,7 +517,7 @@
         >
           Detik Pertemuan Dua Hati
         </p>
-        <h1 class="font-script text-5xl text-dark-main my-3">
+        <h1 class="font-script text-5xl text-[#4B5320] my-3">
           Mazirah &amp; Aiman
         </h1>
 
@@ -598,7 +598,7 @@
     target="_blank"
     rel="noopener"
     aria-label="Idea Hadiah"
-    class="music-btn fixed top-20 right-5 py-2 px-3 rounded-full border border-gold/30 text-gold flex flex-col items-center justify-center gap-1 shadow-lg transition transform hover:scale-105"
+    class="music-btn fixed top-1/2 right-5 -translate-y-1/2 py-2 px-3 rounded-full border border-gold/30 text-gold flex flex-col items-center justify-center gap-1 shadow-lg transition hover:opacity-80"
     >
       <i class="fa-solid fa-gift text-gold text-base"></i>
       <span class="font-serif text-[10px] font-bold uppercase tracking-wider text-dark-main whitespace-nowrap leading-none">Idea Hadiah</span>
@@ -617,9 +617,9 @@
           >
             Detik Pertemuan Dua Hati
           </p>
-          <h1 class="font-script text-6xl text-dark-main my-3">Mazirah</h1>
-          <h1 class="font-script text-6xl text-dark-main my-3">&amp;</h1>
-          <h1 class="font-script text-6xl text-dark-main my-3">Aiman</h1>
+          <h1 class="font-script text-6xl text-[#4B5320] my-3">Mazirah</h1>
+          <h1 class="font-script text-6xl text-[#4B5320] my-3">&amp;</h1>
+          <h1 class="font-script text-6xl text-[#4B5320] my-3">Aiman</h1>
           <div class="my-4 py-3 border-y border-gold/25">
             <p
               class="date-font text-3xl font-bold text-gold-main tracking-[0.2em]"
@@ -631,7 +631,13 @@
             >
               SELASA
             </p>
-          </div>
+            <p
+            class="font-serif text-[11px] uppercase tracking-widest text-dark-muted mt-1 lining-nums"
+            style="font-variant-numeric: lining-nums;"
+          >
+            3 Syaaban 1448H
+          </p>
+        </div>
         </div>
       </section>
 
@@ -669,7 +675,7 @@
     </p>
     <div class="my-5 space-y-3">
       <div class="py-3 px-4">
-        <h3 class="font-script text-3xl text-dark-main">Mazirah</h3>
+        <h3 class="font-script text-3xl text-[#4B5320]">Mazirah</h3>
         <p class="font-serif text-sm text-dark-main font-semibold uppercase tracking-wide mt-1">
           Che Mazirah Binti Che Mazahar
         </p>
@@ -681,7 +687,7 @@
       </div>
       <div class="font-serif text-lg text-gold-main font-bold">&amp;</div>
       <div class="py-3 px-4">
-        <h3 class="font-script text-3xl text-dark-main">Aiman</h3>
+        <h3 class="font-script text-3xl text-[#4B5320]">Aiman</h3>
         <p class="font-serif text-sm text-dark-main font-semibold uppercase tracking-wide mt-1">
           Mohamad Aiman Bin Ramli
         </p>
@@ -877,12 +883,6 @@
       >
         <i class="fa-solid fa-gift text-lg"></i>
       </a>
-      <button
-        onclick="shareInvitation()"
-        class="flex flex-col items-center text-gold-main hover:opacity-70 transition"
-      >
-        <i class="fa-solid fa-share-nodes text-lg"></i>
-      </button>
     </div>
     </div>
 
@@ -1154,7 +1154,7 @@
         closeCalendarModal();
         const icsContent = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Save the Date//EN\nBEGIN:VEVENT\nUID:${Date.now()}@mazirah-aiman\nDTSTAMP:${
           new Date().toISOString().replace(/[-:]/g, '').split('.')[0]
-        }Z\nDTSTART:20270112T030000Z\nDTEND:20270112T080000Z\nSUMMARY:Majlis Perkahwinan Mazirah & Aiman\nLOCATION:LOT 4677-H, Kg Banggol Kulim, 17200 Rantau Panjang, Kelantan\nDESCRIPTION:Majlis Perkahwinan Mazirah & Aiman\nEND:VEVENT\nEND:VCALENDAR`;
+        }Z\nDTSTART:20270112T030000Z\nDTEND:20270112T080000Z\nSUMMARY:Majlis Perkahwinan Mazirah & Aiman (3 Syaaban 1448H)\nLOCATION:LOT 4677-H, Kg Banggol Kulim, 17200 Rantau Panjang, Kelantan\nDESCRIPTION:Majlis Perkahwinan Mazirah & Aiman\nEND:VEVENT\nEND:VCALENDAR`;
         const blob = new Blob([icsContent], {
           type: 'text/calendar;charset=utf-8',
         });
@@ -1171,7 +1171,7 @@
         closeCalendarModal();
         window.open(
           'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' +
-            encodeURIComponent('Majlis Perkahwinan Mazirah & Aiman') +
+             encodeURIComponent('Majlis Perkahwinan Mazirah & Aiman (3 Syaaban 1448H)') +
             '&dates=20270112T030000Z/20270112T080000Z&details=' +
             encodeURIComponent('Majlis Perkahwinan Mazirah & Aiman') +
             '&location=' +
@@ -1277,25 +1277,6 @@
             document.body.removeChild(dummy);
             alert('✅ Nombor akaun telah disalin!');
           });
-      }
-
-      function shareInvitation() {
-        const shareText = `﷽\n\nAssalamualaikum W.B.T.\n\nKami menjemput anda ke Majlis Perkahwinan:\n\n🤍 Mazirah & Aiman 🤍\n\n📅 Selasa | 12 Januari 2027\n📍 LOT 4677-H, Kg Banggol Kulim, 17200 Rantau Panjang, Kelantan`;
-        if (navigator.share) {
-          navigator
-            .share({
-              title: 'Majlis Perkahwinan Mazirah & Aiman',
-              text: shareText,
-              url: window.location.href,
-            })
-            .catch(() => {});
-        } else {
-          navigator.clipboard
-            .writeText(shareText + '\n\n' + window.location.href)
-            .then(() => {
-              alert('✅ Teks undangan telah disalin!');
-            });
-        }
       }
 
       function createPetals() {
